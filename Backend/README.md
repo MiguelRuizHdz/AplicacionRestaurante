@@ -1,5 +1,9 @@
 # Backend AplicacionRestaurante
 
+## Instalar typescript
+Ejecutar en una consola como administrador
+`npm i -g typescript`
+
 ## Instalar paquetes de node
 Run `npm install`
 
