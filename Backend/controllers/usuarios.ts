@@ -1,7 +1,7 @@
-const { response, request } = require('express');
+import { response, request } from 'express';
 
 
-const usuariosGet = (req = request, res = response ) => {
+export const usuariosGet = (req = request, res = response ) => {
 
     const { limite = 10, desde = 0 } = req.query;
 
@@ -11,7 +11,7 @@ const usuariosGet = (req = request, res = response ) => {
     })
 }
 
-const usuariosPost = (req, res) => {
+export const usuariosPost = (req = request, res = response ) => {
 
     const { nombre, correo } = req.body;
 
@@ -22,7 +22,7 @@ const usuariosPost = (req, res) => {
     })
 };
 
-const usuariosPut = (req, res) => {
+export const usuariosPut = (req = request, res = response ) => {
 
     const { id } = req.params;
     res.status(400).json({
@@ -31,16 +31,9 @@ const usuariosPut = (req, res) => {
     })
 };
 
-const usuariosDelete = (req, res) => {
+export const usuariosDelete = (req = request, res = response ) => {
     res.status(200).json({
         msg: 'delete API - controlador'
     })
 };
 
-
-module.exports = {
-    usuariosGet,
-    usuariosPost,
-    usuariosPut,
-    usuariosDelete,
-}
