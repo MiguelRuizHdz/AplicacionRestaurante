@@ -1,4 +1,6 @@
-const socketController = (socket) => {
+import { Socket } from 'socket.io';
+
+export const socketController = (socket: Socket ) => {
 
     console.log('Cliente conectado', socket.id );
 
@@ -6,8 +8,8 @@ const socketController = (socket) => {
         console.log('Cliente desconectado', socket.id );
     });
 
-    socket.on('enviar-mensaje', ( payload , callback ) => {
-        
+    socket.on('enviar-mensaje', ( payload: any , callback: any ) => {
+
         const id = 123456789;
         // Retroalimetación que se ejecuta cuando todo salió bien
         callback( id );
@@ -17,9 +19,4 @@ const socketController = (socket) => {
 
     });
 
-}
-
-
-module.exports = {
-    socketController
 }
