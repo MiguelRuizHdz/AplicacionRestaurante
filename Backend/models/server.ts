@@ -3,9 +3,11 @@ import cors from 'cors';
 import { createServer, Server as HttpServer } from 'http';
 import { Server } from 'socket.io';
 
+import { dbConnection } from '../database/config';
 import { socketController } from '../sockets/controller';
 
 import userRoutes from '../routes/usuarios';
+import rolesRoutes from '../routes/roles';
 
 class Servidor {
 
@@ -15,7 +17,8 @@ class Servidor {
     private httpServer: HttpServer;
     public io: Server;
     private apiPaths = {
-        usuarios: '/api/usuarios'
+        usuarios: '/api/usuarios',
+        roles: '/api/roles',
     }
 
     constructor() {
@@ -23,6 +26,9 @@ class Servidor {
         this.port       = process.env.PORT || '8080';
         this.httpServer = createServer( this.app );
         this.io         = new Server(this.httpServer);
+
+        // Conectar a base de datos
+        this.conectarDB();
 
         // Middlewares
         this.middlewares();
@@ -32,6 +38,10 @@ class Servidor {
 
         // Sockets
         this.sockets();
+    }
+
+    async conectarDB() {
+        await dbConnection();
     }
 
     middlewares() {
@@ -46,6 +56,7 @@ class Servidor {
 
     routes() {
         this.app.use( this.apiPaths.usuarios, userRoutes )
+        this.app.use( this.apiPaths.roles, rolesRoutes )
     }
 
     sockets() {
