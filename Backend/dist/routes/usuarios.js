@@ -12,7 +12,6 @@ router.post('/', [
     express_validator_1.check('password', 'El password debe de ser más de 6 letras').isLength({ min: 6 }),
     express_validator_1.check('correo', 'El correo no es válido').isEmail(),
     express_validator_1.check('correo').custom(db_validators_1.existeEmail),
-    // check('rol', 'No es un rol válido').isIn(['ADMIN_ROLE', 'USER_ROLE']),
     express_validator_1.check('rol').custom(db_validators_1.esRolValido),
     validar_campos_1.validarCampos
 ], usuarios_1.usuariosPost);

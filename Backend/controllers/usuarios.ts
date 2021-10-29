@@ -27,12 +27,12 @@ export const usuariosPost = async(req = request, res = response ) => {
     const usuario = new Usuario({ nombre, correo, password, rol });
 
     // Verificar si el correo existe
-    // const existeEmail = await Usuario.findOne({ correo });
-    // if ( existeEmail ) {
-    //     return res.status(400).json({
-    //         msg: 'El correo ya está registrado'
-    //     });
-    // }
+    const existeEmail = await Usuario.findOne({ correo });
+    if ( existeEmail ) {
+        return res.status(400).json({
+            msg: 'El correo ya está registrado'
+        });
+    }
 
     // Encriptar la contraseña
     const salt = bcrypt.genSaltSync();

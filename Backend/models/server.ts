@@ -8,6 +8,14 @@ import { socketController } from '../sockets/controller';
 
 import userRoutes from '../routes/usuarios';
 import rolesRoutes from '../routes/roles';
+import recetasRoutes from '../routes/recetas';
+import proveedorPedidoRoutes from '../routes/proveedorPedidos';
+import proveedorRoutes from '../routes/proveedores';
+import mesasRoutes from '../routes/mesas';
+import menusRoutes from '../routes/menus';
+import clientePedidosRoutes from '../routes/clientePedidos';
+import invIngredientesRoutes from '../routes/invIngredientes';
+import invProductosRoutes from '../routes/invProductos';
 
 class Servidor {
 
@@ -19,6 +27,14 @@ class Servidor {
     private apiPaths = {
         usuarios: '/api/usuarios',
         roles: '/api/roles',
+        recetas: '/api/recetas',
+        proveedores: '/api/proveedores',
+        proveedorPedidos: '/api/proveedorpedidos',
+        mesas: '/api/mesas',
+        menus: '/api/menus',
+        clientePedidos: '/api/clientepedidos',
+        invIngredientes: '/api/invingredientes',
+        invProductos: '/api/invproductos',
     }
 
     constructor() {
@@ -57,6 +73,14 @@ class Servidor {
     routes() {
         this.app.use( this.apiPaths.usuarios, userRoutes )
         this.app.use( this.apiPaths.roles, rolesRoutes )
+        this.app.use( this.apiPaths.recetas, recetasRoutes )
+        this.app.use( this.apiPaths.proveedorPedidos, proveedorPedidoRoutes )
+        this.app.use( this.apiPaths.proveedores, proveedorRoutes )
+        this.app.use( this.apiPaths.mesas, mesasRoutes )
+        this.app.use( this.apiPaths.menus, menusRoutes )
+        this.app.use( this.apiPaths.clientePedidos, clientePedidosRoutes )
+        this.app.use( this.apiPaths.invIngredientes, invIngredientesRoutes )
+        this.app.use( this.apiPaths.invProductos, invProductosRoutes )
     }
 
     sockets() {
