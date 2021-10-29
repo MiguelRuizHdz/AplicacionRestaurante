@@ -60,14 +60,18 @@ npm -v
 git clone https://github.com/MiguelRuizHdz/AplicacionRestaurante.git
 
 ## Ejecutar Backend
+```
 cd Backend
 npm i
 npm run start
+```
 
 ## Ejecutar Frontend
+```
 cd Frontend
 npm i
 ionic serve
+```
 
 *Este documento sigue en construcción*
 
