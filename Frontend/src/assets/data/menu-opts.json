@@ -1,0 +1,40 @@
+[{
+    "icon": "person-circle",
+    "name": "Administrador",
+    "redirectTo": "/administrador"
+},
+{
+    "icon": "card",
+    "name": "Cajas",
+    "redirectTo": "/cajas"
+},
+{
+    "icon": "file-tray-stacked",
+    "name": "Inventario",
+    "redirectTo": "/inventario"
+},
+{
+    "icon": "fast-food",
+    "name": "Menu",
+    "redirectTo": "/menu"
+},
+{
+    "icon": "clipboard",
+    "name": "Mesero",
+    "redirectTo": "/mesero"
+},
+{
+    "icon": "receipt",
+    "name": "Pedidos",
+    "redirectTo": "/pedidos"
+},
+{
+    "icon": "newspaper",
+    "name": "Recetas",
+    "redirectTo": "/recetas"
+},
+{
+    "icon": "bicycle",
+    "name": "Repartidor",
+    "redirectTo": "/repartidor"
+}]
