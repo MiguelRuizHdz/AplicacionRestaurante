@@ -1,0 +1,38 @@
+// ClientePedido
+
+{
+    "tipoPedido": {
+
+    },
+    "mesa": {
+
+    },
+    "direccion": {
+
+    },
+    "numeroComensales": {
+
+    },
+    "notas": {
+
+    },
+    
+    "producto": [
+        // no,bre, precio, cantidad
+        ["enchiladas", 55.00, 2],
+        ["tacos", 50.00, 1],
+        ["flautas", 60.00, 2]
+    ],
+    "total": {
+
+    },
+    "fecha": {
+
+    },
+    "estado": {
+
+    },
+    "creadoPor": {
+
+    }
+} 

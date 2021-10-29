@@ -13,17 +13,22 @@ const UsuarioSchema = new Schema({
     },
     password: {
         type: String,
-        required: [true, 'La contraseña es obligatoria']
+        required: [true, 'La contraseña es obligatoria'],
+        default: '1234'
     },
     rol: {
         type: String,
         required: [true, 'El rol es requerido'],
-        emun: ['ADMIN', 'CHEF', 'COCINERO', 'MESERO', 'ALMACEN', 'CAJERO']
+        emun: ['SUPERADMIN', 'ADMIN', 'CHEF', 'COCINERO', 'MESERO', 'ALMACENISTA', 'CAJERO', 'REPARTIDOR']
     },
     estado: {
         type: Boolean,
         default: true
     },
+    // creadoPor: {
+    //     type: String,
+    //     // required: [true, 'El nombre del Admin Creador es requerido'],
+    // },
 
 });
 
@@ -49,6 +54,7 @@ interface IUsuario extends Document {
     password: string;
     rol: string;
     estado: boolean;
+    // creadoPor: string;
 
     compararPassword( password: string): boolean;
 }

@@ -1,22 +1,9 @@
 "use strict";
-var __rest = (this && this.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Usuario = void 0;
+const tslib_1 = require("tslib");
 const mongoose_1 = require("mongoose");
-const bcrypt_1 = __importDefault(require("bcrypt"));
+const bcrypt_1 = tslib_1.__importDefault(require("bcrypt"));
 const UsuarioSchema = new mongoose_1.Schema({
     nombre: {
         type: String,
@@ -29,12 +16,13 @@ const UsuarioSchema = new mongoose_1.Schema({
     },
     password: {
         type: String,
-        required: [true, 'La contraseña es obligatoria']
+        required: [true, 'La contraseña es obligatoria'],
+        default: '1234'
     },
     rol: {
         type: String,
         required: [true, 'El rol es requerido'],
-        emun: ['ADMIN', 'CHEF', 'COCINERO', 'MESERO', 'ALMACEN', 'CAJERO']
+        emun: ['SUPERADMIN', 'ADMIN', 'CHEF', 'COCINERO', 'MESERO', 'ALMACENISTA', 'CAJERO', 'REPARTIDOR']
     },
     estado: {
         type: Boolean,
@@ -42,7 +30,7 @@ const UsuarioSchema = new mongoose_1.Schema({
     },
 });
 UsuarioSchema.methods.toJSON = function () {
-    const _a = this.toObject(), { __v, password } = _a, usuario = __rest(_a, ["__v", "password"]);
+    const _a = this.toObject(), { __v, password } = _a, usuario = tslib_1.__rest(_a, ["__v", "password"]);
     return usuario;
 };
 UsuarioSchema.method('compararPassword', function (password = '') {
