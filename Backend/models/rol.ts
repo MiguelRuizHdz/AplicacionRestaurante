@@ -3,7 +3,8 @@ import { Schema, Document, model } from 'mongoose';
 const RolSchema = new Schema({
     nombre: {
         type: String,
-        required: [true, 'El nombre del rol es obligatorio']
+        required: [true, 'El nombre del rol es obligatorio'],
+        unique: true
     }
 });
 

@@ -3,7 +3,8 @@ import { Schema, Document, model } from 'mongoose';
 const ProveedorSchema = new Schema({
     nombre: {
         type: String,
-        required: [true, 'El nombre del proveedor es obligatorio']
+        required: [true, 'El nombre del proveedor es obligatorio'],
+        unique: true
     },
     telefono: {
         type: Number,
@@ -11,15 +12,17 @@ const ProveedorSchema = new Schema({
     },
     correo: {
         type: Number,
-        // required: [true, 'El teléfono del proveedor es obligatorio']
+        required: [true, 'El correo del proveedor es obligatorio'],
+        unique: true
     },
     direccion: {
         type: String,
-        // required: [true, 'La dirección del proveedor es obligatorio']
+        required: [true, 'La dirección del proveedor es obligatorio']
     },
     rfc: {
         type: String,
-        // required: [true, 'El RFC del proveedor es obligatorio']
+        required: [true, 'El RFC del proveedor es obligatorio'],
+        unique: true
     }
 });
 

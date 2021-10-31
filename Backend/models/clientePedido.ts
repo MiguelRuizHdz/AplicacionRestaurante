@@ -12,15 +12,17 @@ const ClientePedidoSchema = new Schema({
     },
     mesa: {
         type: String,
+        // ref: 'Mesa',
         // required: [true, 'La mesa del pedido del cliente es obligatorio']
     },
     numeroComensales: {
         type: Number,
+        // ref: 'Mesa',
         // required: [true, 'El numero de comensales del pedido del cliente es obligatorio']
     },
     direccion: {
         type: String,
-        // required: [true, 'La mesa del pedido del cliente es obligatorio']
+        // required: [true, 'La direccion del pedido del cliente es obligatoria']
     },
     notas: {
         type: String,
@@ -73,7 +75,7 @@ const ClientePedidoSchema = new Schema({
     },
     creadoPor: {
         type: String,
-        // required: [true, 'El nombre del Creador del pedido es requerido'],
+        required: [true, 'El nombre del Creador del pedido es requerido'],
     },
     entregadoPor: {
         type: String,

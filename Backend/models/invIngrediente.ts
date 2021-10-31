@@ -3,7 +3,8 @@ import { Schema, Document, model } from 'mongoose';
 const IngredienteSchema = new Schema({
     nombre: {
         type: String,
-        required: [true, 'El nombre del ingrediente es obligatorio']
+        required: [true, 'El nombre del ingrediente es obligatorio'],
+        unique: true
     },
     imagen: {
         type: String,
@@ -23,6 +24,7 @@ const IngredienteSchema = new Schema({
     },
     proveedor: {
         type: String,
+        ref: 'Proveedore',
         required: [true, 'Nombre del proveedor ingrediente es obligatorio']
     },
     descripcion: {

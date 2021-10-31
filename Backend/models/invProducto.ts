@@ -27,6 +27,7 @@ const ProductoSchema = new Schema({
     },
     proveedor: {
         type: Number,
+        ref: 'Proveedore',
         required: [true, 'El nombre del proveedor del producto es obligatorio']
     },
     estado: {

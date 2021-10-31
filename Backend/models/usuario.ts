@@ -18,6 +18,7 @@ const UsuarioSchema = new Schema({
     },
     rol: {
         type: String,
+        ref: 'Role',
         required: [true, 'El rol es requerido'],
         emun: ['SUPERADMIN', 'ADMIN', 'CHEF', 'COCINERO', 'MESERO', 'ALMACENISTA', 'CAJERO', 'REPARTIDOR']
     },

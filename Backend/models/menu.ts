@@ -27,10 +27,10 @@ const MenuSchema = new Schema({
         type: Boolean,
         default: true
     },
-    creadoPor: {
-        type: String,
-        // required: [true, 'El nombre del Admin Creador es requerido'],
-    }
+    // creadoPor: {
+    //     type: String,
+    //     // required: [true, 'El nombre del Admin Creador es requerido'],
+    // }
 });
 
 MenuSchema.methods.toJSON = function() {
@@ -45,7 +45,7 @@ interface IMenu extends Document {
     descripción: string;
     categoria: string;
     estado: boolean;
-    creadoPor: string;
+    // creadoPor: string;
 }
 
 export const Menu = model<IMenu>( 'Menu', MenuSchema );
