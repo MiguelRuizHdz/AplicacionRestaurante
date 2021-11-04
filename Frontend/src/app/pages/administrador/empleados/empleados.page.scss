@@ -1,0 +1,100 @@
+.add {
+    padding-right: 135px;
+}
+
+.add ion-button {
+    // padding-right: 150px;
+    --border-radius: 100%;
+    // font-size: 400px;
+    --padding-top: 8px;
+    --padding-bottom: 8px;
+    height: 64px;
+}
+
+.botones ion-button {
+    --border-radius: 100%;
+    // font-size: 400px;
+    --padding-top: 8px;
+    --padding-bottom: 8px;
+    height: 64px;
+}
+
+.submodulo{
+    text-transform: capitalize;
+    font-family: var(--fuente-modulos);
+    font-size: 24px;
+}
+
+.mensaje {
+    font-family: var(--fuente-modulos);
+    font-size: 24px;
+}
+
+ion-icon {
+    margin: 0 20px;
+    font-size: 24px;
+    color: #000;
+}
+
+.tabla-encabezado ion-label {
+    font-size: 24px;
+    color: #B3AEAE;
+}
+
+.tabla-contenido ion-label {
+    font-size: 18px;
+    color: #B3AEAE;
+}
+
+ion-row ion-col {
+    display: flex;
+    border-bottom: groove;
+    border-color: solid #D0C9C9;
+    align-items: center;
+}
+
+.tabla-empleados {
+    // display: flex;
+}
+
+div .add {
+    height: 90px;
+}
+
+.inputgris {
+    --background: #EDEFF2;
+    border-radius: 12px;
+}
+
+.row {
+    display: flex;
+     width: 100%;
+}
+
+.col6 {
+    width: 50%;
+}
+
+.save ion-button {
+    --border-radius: 100%;
+    --padding-top: 8px;
+    --padding-bottom: 8px;
+    height: 76px;
+}
+
+div .save {
+    height: 90px;
+    padding-right: 150px;
+}
+
+.m-tn {
+    margin-top: -25px;
+}
+
+.m-t {
+    margin-top: 25px;
+}
+
+ion-item {
+    --border-width: 0px;
+}

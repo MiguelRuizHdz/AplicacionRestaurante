@@ -29,9 +29,6 @@ const MenuSchema = new mongoose_1.Schema({
         type: Boolean,
         default: true
     },
-    creadoPor: {
-        type: String,
-    }
 });
 MenuSchema.methods.toJSON = function () {
     const _a = this.toObject(), { __v } = _a, data = tslib_1.__rest(_a, ["__v"]);

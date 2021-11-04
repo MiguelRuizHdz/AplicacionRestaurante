@@ -1,0 +1,157 @@
+<ion-content>
+    
+    <div *ngIf="!agregar && !editando">
+        <ion-buttons slot="start">
+            <ion-button>
+                <ion-icon slot="start" name="people"></ion-icon>
+                <ion-text class="submodulo">
+                    Empleados
+                </ion-text>
+            </ion-button>
+    
+            <ion-button>
+                <ion-icon slot="start" name="people-circle-outline"></ion-icon>
+                <ion-text class="submodulo">
+                    Proveedores
+                </ion-text>
+            </ion-button>
+    
+        </ion-buttons>
+    
+    
+        <div class="add">
+            <ion-buttons class="ion-float-end">
+                <ion-button (click)="btnAgregarEmpleado()" >
+                    <ion-img slot="end" size="large" src="assets/icons/circle-add.svg"></ion-img>
+                </ion-button>
+            </ion-buttons>
+        </div>
+    
+        <div class="tabla-empleados">
+    
+            <ion-row class="tabla-encabezado">
+                <ion-col col-1>
+                    <ion-label>Nombre</ion-label>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-label>Email</ion-label>
+                </ion-col>
+                <ion-col col-1>
+                    <ion-label>Rol</ion-label>
+                </ion-col>
+                <ion-col col-1>
+                    <ion-label>Estado</ion-label>
+                </ion-col>
+                <ion-col col-3>
+                    <ion-label>Opciones</ion-label>
+                </ion-col>
+            </ion-row>
+            <ion-row  class="tabla-contenido" *ngFor="let e of empleados">
+                <ion-col col-1>
+                    <ion-label>{{ e.nombre }}</ion-label>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-label>{{ e.correo }}</ion-label>
+                </ion-col>
+                <ion-col col-1>
+                    <ion-label>{{ e.rol | capitalizado }}</ion-label>
+                </ion-col>
+                <ion-col col-1>
+                    <ion-label>{{ e.estado | estado }}</ion-label>
+                </ion-col>
+                <ion-col col-3>
+                    <ion-buttons class="botones">
+                        <ion-button (click)="btnEliminarEmpleado(e)" >
+                            <ion-img  size="large" src="assets/icons/circle-error.svg"></ion-img>
+                        </ion-button>
+                        <ion-button (click)="btnEditarEmpleado(e)" >
+                            <ion-img  size="large" src="assets/icons/edit.svg"></ion-img>
+                        </ion-button>
+                    </ion-buttons>
+                </ion-col>
+            </ion-row>
+        </div>
+    </div>
+
+    <div *ngIf="agregar">
+
+        <ion-buttons slot="start">
+            <ion-icon name="arrow-back-outline" (click)="regresar()"></ion-icon>
+            <p class="mensaje">Ingrese los datos del empleado</p>
+        </ion-buttons>     
+
+        <form (ngSubmit)="registrarEmpleado()" autocomplete="off" [formGroup]="registroEmpleado">
+
+            <div class="row">
+                <div class="col6">
+                    <ion-item class="m-t">
+                        <ion-label position="fixed" class="">Nombre</ion-label>
+                        <ion-input class="inputgris" type="text" formControlName="nombre" [class.is-invalid]="nombreNoValido"></ion-input>
+                    </ion-item>
+                    <ion-item class="m-t">
+                        <ion-label position="fixed" class="">Correo</ion-label>
+                        <ion-input class="inputgris" type="email" formControlName="correo" [class.is-invalid]="correoNoValido"></ion-input>
+                    </ion-item>
+                    <ion-item class="m-t">
+                        <ion-label position="fixed" class="">Contraseña</ion-label>
+                        <ion-input class="inputgris" type="password" formControlName="password" [class.is-invalid]="passwordNoValida"></ion-input>
+                    </ion-item>
+                    <ion-item class="m-t">
+                        <ion-label class="">Rol</ion-label>
+                        <ion-select class="inputgris" interface="popover" type="text" formControlName="rol" [class.is-invalid]="rolNoValido">
+                            <ion-select-option *ngFor="let rol of roles" [value]="rol.nombre">{{ rol.nombre }}</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                </div>
+                <div class="save col6 m-tn">
+                    <ion-buttons class="ion-float-end">
+                        <ion-button type="submit" [disabled]="!registroEmpleado.valid">
+                            <ion-img slot="end" src="assets/icons/save.svg"></ion-img>
+                        </ion-button>
+                    </ion-buttons>
+                </div>
+            </div>   
+            
+        </form>
+
+    </div>
+
+    <div *ngIf="editando">
+
+        <ion-buttons slot="start">
+            <ion-icon name="arrow-back-outline" (click)="regresar()"></ion-icon>
+            <p class="mensaje">Edite los datos del empleado</p>
+        </ion-buttons>     
+
+        <form (ngSubmit)="editarEmpleado()" autocomplete="off" [formGroup]="edicionEmpleado">
+
+            <div class="row">
+                <div class="col6">
+                    <ion-item class="m-t">
+                        <ion-label position="fixed" class="">Nombre</ion-label>
+                        <ion-input class="inputgris" type="text" formControlName="nombre" placeholder="" [class.is-invalid]="nombreNoValido"></ion-input>
+                    </ion-item>
+                    <ion-item class="m-t">
+                        <ion-label position="fixed" class="">Correo</ion-label>
+                        <ion-input class="inputgris" type="email" formControlName="correo" placeholder="" [class.is-invalid]="correoNoValido"></ion-input>
+                    </ion-item>
+                    <ion-item class="m-t">
+                        <ion-label class="">Rol</ion-label>
+                        <ion-select class="inputgris" interface="popover" type="text" formControlName="rol" [class.is-invalid]="rolNoValido">
+                            <ion-select-option *ngFor="let rol of roles" [value]="rol.nombre">{{ rol.nombre }}</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                </div>
+                <div class="save col6 m-tn">
+                    <ion-buttons class="ion-float-end">
+                        <ion-button type="submit" [disabled]="!edicionEmpleado.valid">
+                            <ion-img slot="end" src="assets/icons/save.svg"></ion-img>
+                        </ion-button>
+                    </ion-buttons>
+                </div>
+            </div>   
+            
+        </form>
+
+    </div>
+</ion-content>

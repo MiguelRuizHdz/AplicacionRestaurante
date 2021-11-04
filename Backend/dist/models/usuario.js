@@ -16,11 +16,11 @@ const UsuarioSchema = new mongoose_1.Schema({
     },
     password: {
         type: String,
-        required: [true, 'La contraseña es obligatoria'],
-        default: '1234'
+        required: [true, 'La contraseña es obligatoria']
     },
     rol: {
         type: String,
+        ref: 'Role',
         required: [true, 'El rol es requerido'],
         emun: ['SUPERADMIN', 'ADMIN', 'CHEF', 'COCINERO', 'MESERO', 'ALMACENISTA', 'CAJERO', 'REPARTIDOR']
     },

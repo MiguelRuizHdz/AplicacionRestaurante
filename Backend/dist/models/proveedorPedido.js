@@ -10,6 +10,7 @@ const ProveedorPedidoSchema = new mongoose_1.Schema({
     },
     proveedor: {
         type: String,
+        ref: 'Proveedore',
         required: [true, 'El total del pedido al cliente es obligatorio']
     },
     productos: [{

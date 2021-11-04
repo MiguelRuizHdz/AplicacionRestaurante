@@ -9,6 +9,11 @@
     "redirectTo": "/cajas"
 },
 {
+    "icon": "receipt",
+    "name": "Cocina",
+    "redirectTo": "/cocina"
+},
+{
     "icon": "file-tray-stacked",
     "name": "Inventario",
     "redirectTo": "/inventario"
@@ -22,11 +27,6 @@
     "icon": "clipboard",
     "name": "Mesero",
     "redirectTo": "/mesero"
-},
-{
-    "icon": "receipt",
-    "name": "Pedidos",
-    "redirectTo": "/pedidos"
 },
 {
     "icon": "newspaper",

@@ -13,8 +13,7 @@ const UsuarioSchema = new Schema({
     },
     password: {
         type: String,
-        required: [true, 'La contraseña es obligatoria'],
-        default: '1234'
+        required: [true, 'La contraseña es obligatoria']
     },
     rol: {
         type: String,
