@@ -24,3 +24,21 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+h1 {
+    font-size: 32px !important;
+}
+
+.titulo {
+    color: #000;
+    margin-top: 30px;
+    margin-left: 30px;
+    line-height: 50px;
+}
+
+ion-menu-button {
+    // color: rgb(164, 199, 219);
+    margin-top: 20px;
+    color: #446CAA;
+}

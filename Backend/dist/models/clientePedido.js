@@ -49,6 +49,7 @@ const ClientePedidoSchema = new mongoose_1.Schema({
     },
     creadoPor: {
         type: String,
+        required: [true, 'El nombre del Creador del pedido es requerido'],
     },
     entregadoPor: {
         type: String,

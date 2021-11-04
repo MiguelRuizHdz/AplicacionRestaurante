@@ -6,7 +6,8 @@ const mongoose_1 = require("mongoose");
 const IngredienteSchema = new mongoose_1.Schema({
     nombre: {
         type: String,
-        required: [true, 'El nombre del ingrediente es obligatorio']
+        required: [true, 'El nombre del ingrediente es obligatorio'],
+        unique: true
     },
     imagen: {
         type: String,
@@ -26,6 +27,7 @@ const IngredienteSchema = new mongoose_1.Schema({
     },
     proveedor: {
         type: String,
+        ref: 'Proveedore',
         required: [true, 'Nombre del proveedor ingrediente es obligatorio']
     },
     descripcion: {

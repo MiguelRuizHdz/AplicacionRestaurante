@@ -6,7 +6,8 @@ const mongoose_1 = require("mongoose");
 const RolSchema = new mongoose_1.Schema({
     nombre: {
         type: String,
-        required: [true, 'El nombre del rol es obligatorio']
+        required: [true, 'El nombre del rol es obligatorio'],
+        unique: true
     }
 });
 RolSchema.methods.toJSON = function () {

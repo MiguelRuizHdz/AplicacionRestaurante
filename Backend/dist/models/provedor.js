@@ -6,7 +6,8 @@ const mongoose_1 = require("mongoose");
 const ProveedorSchema = new mongoose_1.Schema({
     nombre: {
         type: String,
-        required: [true, 'El nombre del proveedor es obligatorio']
+        required: [true, 'El nombre del proveedor es obligatorio'],
+        unique: true
     },
     telefono: {
         type: Number,
@@ -14,12 +15,17 @@ const ProveedorSchema = new mongoose_1.Schema({
     },
     correo: {
         type: Number,
+        required: [true, 'El correo del proveedor es obligatorio'],
+        unique: true
     },
     direccion: {
         type: String,
+        required: [true, 'La dirección del proveedor es obligatorio']
     },
     rfc: {
         type: String,
+        required: [true, 'El RFC del proveedor es obligatorio'],
+        unique: true
     }
 });
 ProveedorSchema.methods.toJSON = function () {
